@@ -9,16 +9,17 @@ module.exports = function (eleventyConfig) {
 
   // Add an async image shortcode for Nunjucks templates
   eleventyConfig.addNunjucksAsyncShortcode("image", async function (src, alt, outputFormat = "jpeg") {
-    // Process the image with different widths (adjust as needed)
+    // Use the original image dimensions by passing [null] for widths
     let stats = await Image(src, {
-      widths: [300, 600],
+      widths: [null],
       formats: [outputFormat],
       urlPath: "/images/",
       outputDir: "./dist/images/"
     });
-    // Use the smallest image for the src attribute
-    let props = stats[outputFormat][0];
-    return `<img src="${props.url}" width="${props.width}" height="${props.height}" alt="${alt}">`;
+    
+    // Since we're only generating one variant, select the first (and only) result.
+    let imageData = stats[outputFormat][0];
+    return `<img src="${imageData.url}" width="${imageData.width}" height="${imageData.height}" alt="${alt}">`;
   });
 
   return {
