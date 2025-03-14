@@ -1,0 +1,12 @@
+{
+	"name": "eleventy-basic-setup",
+	"version": "1.0.0",
+	"description": "A minimal Eleventy setup with partials and layouts.",
+	"scripts": {
+		"start": "eleventy --serve",
+		"build": "eleventy"
+	},
+	"dependencies": {
+		"@11ty/eleventy": "^3.0.0"
+	}
+}
