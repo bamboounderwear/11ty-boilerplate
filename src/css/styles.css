@@ -1,4 +1,4 @@
-/* Modern CSS Reset */
+/* Minimal, non-opinionated CSS Reset */
 *,
 *::before,
 *::after {
@@ -9,18 +9,14 @@
 
 html {
   font-size: 100%;
-  -webkit-text-size-adjust: 100%; /* Prevent mobile font scaling */
+  -webkit-text-size-adjust: 100%; /* Prevent mobile text size adjustments */
 }
 
 body {
-  min-height: 100vh;
   line-height: 1.5;
-  font-family: sans-serif;
-  background-color: #fff;
-  color: #000;
 }
 
-/* Make images, videos, and other media elements responsive */
+/* Make media elements responsive */
 img,
 picture,
 video,
@@ -36,19 +32,7 @@ ol {
   list-style: none;
 }
 
-/* Reset default styling for form elements */
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: none;
-  outline: none;
-}
-
-/* Remove default text-decoration and inherit color for links */
+/* Remove default link styling */
 a {
   text-decoration: none;
   color: inherit;
