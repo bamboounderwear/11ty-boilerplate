@@ -1,1354 +1,416 @@
-/*
-Layers CSS 1.2.0 
-Released by Jerry Jäppinen under the MIT license
-https://layers-css.vercel.app/layers-css
-2015-05-29
-*/
-html,
-body {
-  width: 100%;
-  height: 100%;
+/*! concrete.css v3.0.0 | MIT License | github.com/louismerlin/concrete.css */
+
+/**
+ * Set universal color variables
+ */
+
+ :root {
+  --fg: #111;
+  --bg: #fff;
 }
-html,
-body,
-div,
-span,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-abbr,
-address,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-samp,
-a,
-small,
-strong,
-sub,
-sup,
-var,
-i,
-b,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary,
-time,
-mark,
-audio,
-video {
-  clear: both;
-  outline-width: 0;
-  border-width: 0;
-  border-style: solid;
-  border-color: transparent;
-  background: transparent;
-  outline-style: solid;
-  vertical-align: baseline;
+
+/**
+ * Invert the colors if the user has dark mode activated.
+ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fg: #fff;
+    --bg: #111;
+  }
 }
-html,
-body,
-blockquote,
-pre,
-table,
-form {
-  margin: 0;
-  padding: 0;
-}
-figure,
-button,
-input,
-select,
-textarea {
-  margin: 0;
-}
-img,
-iframe,
-button,
-input,
-select,
-textarea {
-  max-width: 100%;
-}
-iframe {
-  width: 100%;
-  display: block;
-}
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section,
-summary {
-  display: block;
-}
-audio,
-canvas,
-video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1;
-}
-audio:not([controls]) {
-  display: none;
-}
-[hidden] {
-  display: none;
-}
-img {
-  -ms-interpolation-mode: bicubic;
-}
-svg:not(:root) {
-  overflow: hidden;
-}
-pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-ul {
-  list-style: disc;
-  padding-left: 2em;
-}
-ol {
-  list-style: decimal;
-  padding-left: 2em;
-}
-nav ul,
-nav ol {
-  list-style: none;
-  list-style-image: none;
-  padding-left: 0;
-}
-sub,
-sup {
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-caption,
-th,
-td {
-  text-align: left;
-  vertical-align: top;
-}
+
+/**
+ * 1. Modify the base font-size to 1.25rem, to make everything larger.
+ * 2. Set box-sizing globally to handle padding and border widths.
+ */
+
 html {
-  font-size: 100%;
-  font-family: sans-serif;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+  font-size: 1.25rem; /* 1 */
+  box-sizing: border-box; /* 2 */
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-dt,
-mark,
-th {
-  font-weight: bold;
+
+/**
+ * 1. Continue the global box-sizing modification.
+ * 2. Set the underline size for all elements.
+ */
+
+*, ::after, ::before {
+  box-sizing: inherit; /* 1 */
+  text-decoration-thickness: .1rem; /* 2 */
 }
+
+/**
+ * 1. Remove body margin.
+ * 2. Set the text and background color to white and black by default.
+ * 3. Set the font-family to Helvetica, or equivalent.
+ */
+
+body {
+  margin: 0; /* 1 */
+  background: var(--bg); /* 2 */
+  color: var(--fg); /* 2 */
+  font-family: Helvetica, Arial, sans-serif; /* 3 */
+}
+
+/**
+ * Set the link color to black
+ */
+
 a {
-  text-decoration: underline;
+  color: var(--fg);
 }
-a:hover {
-  text-decoration: none;
+
+/**
+ * 1. Stretch figure to full width of the section.
+ */
+figure {
+  margin: 0; /* 1 */
 }
-input,
-select,
-textarea,
-button {
-  font-family: inherit;
+
+/**
+ * 1. Right-align text 
+ * 2. Make figure caption a little smaller than normal text.
+ * 3. Add border at bottom.
+ * 4. Add spacing after the element.
+ */
+figcaption {
+  text-align: right; /* 1 */
+  font-size: 0.8em; /* 2 */
+  border-bottom: .2rem solid var(--fg); /* 3 */
+  padding-bottom: .2rem; /* 4 */
 }
-input[type=""],
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="url"],
-input[type="search"],
-input[type="tel"],
-select,
-textarea,
-pre,
-code,
-kbd,
-samp {
-  font-size: inherit;
-  line-height: inherit;
+
+/**
+ * 1. Set the max width of images to 100%, so that they don't overflow.
+ * 2. Set the height of images relative to their width.
+ */
+
+img {
+  max-width: 100%; /* 1 */
+  height: auto; /* 2 */
 }
-input:not([type]) {
-  font-size: inherit;
-  line-height: inherit;
+
+/**
+ * Add some padding around the main sections.
+ */
+
+main section + section {
+  padding: 2rem 0;
 }
-button,
-input,
-select,
-textarea,
-pre,
-code,
-kbd,
-samp {
-  font-weight: inherit;
+
+/** 
+ * 1. Center the root main/header/footer elements horizontally.
+ * 2. Set the width of the elements to 640px, with padding for mobile screens.
+ */
+
+body > header,
+body > main,
+body > footer {
+  margin: auto; /* 1 */
+  max-width: 660px; /* 2 */
+  padding-left: 10px; /* 2 */
+  padding-right: 10px; /* 2 */
+  width: 100%; /* 2 */
 }
-button,
-select {
-  text-transform: none;
+
+/**
+ * 1. Add some padding around the main header.
+ * 2. Increase the size of text in the main header.
+ */
+
+body > header {
+  padding-top: 8rem; /* 1 */
+  padding-bottom: 8rem; /* 1 */
+  font-size: 1.2em; /* 2 */
 }
-em,
-dfn,
-q,
-blockquote {
-  font-style: italic;
-}
-del {
-  text-decoration: line-through;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-button,
-input,
-textarea {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  display: inline-block;
-}
-input[type="search"] {
-  -webkit-appearance: textfield;
-  -moz-appearance: textfield;
-}
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
-}
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0;
-}
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  -webkit-appearance: button;
-}
-button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.5em; }
+h3 { font-size: 1.17em; }
+h4 { font-size: 1.00em; }
+h5 { font-size: 0.83em; }
+h6 { font-size: 0.67em; }
+
+/**
+ * Center the text in the footer.
+ */
+
+footer {
   text-align: center;
 }
+
+/**
+ * 1. Change the style of the button.
+ * 2. Set the color and border of the button.
+ * 3. Add the pointer cursor when hovering a button.
+ */
+
 button,
-input,
-select {
-  vertical-align: baseline;
-  *vertical-align: middle;
-}
-textarea {
-  overflow: auto;
-  vertical-align: top;
-}
-body {
-  cursor: default;
-}
-abbr[title],
-dfn[title] {
-  text-decoration: underline;
-  cursor: help;
-}
-a,
-label,
-button,
-input[type="submit"],
 input[type="button"],
 input[type="reset"],
-input[type="radio"],
-input[type="checkbox"],
-select,
-option,
-input[type="image"],
-input[type="file"] {
-  cursor: pointer;
+input[type="submit"] {
+  display: inline-block; /* 1 */
+  vertical-align: middle; /* 1 */
+  padding: .2rem .5rem; /* 1 */
+  font-size: 1rem; /* 1 */
+  font-weight: normal; /* 1 */
+  margin-bottom: .5rem; /* 1 */
+  background: var(--bg); /* 2 */
+  color: var(--fg); /* 2 */
+  border: .1rem solid var(--fg); /* 2 */
+  border-radius: 0; /* 2 */
+  cursor: pointer; /* 3 */
 }
-.disabled button,
-.disabled label,
-.disabled a,
-button.disabled,
-label.disabled,
-a.disabled,
-.disabled input[type="submit"],
-.disabled input[type="button"],
-.disabled input[type="reset"],
-input[type="submit"].disabled,
-input[type="button"].disabled,
-input[type="reset"].disabled {
-  cursor: default;
+
+/**
+ * 1. Set the border of a disabled button to be dashed.
+ * 2. Add the not-allowed cursor when hovering a disabled button.
+ */
+
+button:disabled,
+input[type="button"]:disabled,
+input[type="reset"]:disabled,
+input[type="submit"]:disabled{
+  border-style: dashed; /* 1 */
+  cursor: not-allowed; /* 2 */ 
 }
-a[disabled],
-button[disabled],
-input[disabled] {
-  cursor: default;
+
+/**
+ * Set the list bullet to square.
+ */
+
+ul {
+  list-style: square;
 }
-a:focus {
-  outline-style: dotted;
+
+/**
+ * Set a margin around the navigation bar
+ */
+nav {
+  margin: 2rem 0;
 }
-a:active,
-a:hover {
-  outline: 0;
+
+/**
+ * 1. Remove padding around the navigation bar's inner unordered list
+ * 2. Remove list style for the navigation bar's inner unordered list
+ */
+nav ul {
+  padding: 0; /* 1 */
+  list-style: none; /* 2 */
 }
-input[type="text"],
-input[type="password"],
+
+/**
+ * 1. Set margins around the navigation bar's inner unordered list items
+ * 2. Make navigation bar unordered list elements render horizontally
+ */
+nav ul li {
+  margin: 0 .2rem; /* 1 */
+  display: inline-block; /* 2 */
+}
+
+/**
+ * Set the border around a fieldset.
+ */
+
+fieldset {
+  border: .1rem solid var(--fg);
+}
+
+/**
+ * 1. Modify the display of labels and legends.
+ * 2. Add a margin underneath.
+ */
+
+label, legend {
+  display: block; /* 1 */
+  font-weight: bold; /* 1 */
+  margin-bottom: .4rem; /* 2 */
+}
+
+/** 
+ * 1. Change the appearance of the text input.
+ * 2. Set the color and border of the text input.
+ */
+
 input[type="email"],
-input[type="url"],
+input[type="number"],
+input[type="password"],
 input[type="search"],
 input[type="tel"],
-input[type=""] {
-  width: 20em;
-  max-width: 90%;
-}
-input:not([type]) {
-  width: 20em;
-  max-width: 90%;
-}
-input[type="text"].squeeze,
-input[type="password"].squeeze,
-input[type="email"].squeeze,
-input[type="url"].squeeze,
-input[type="search"].squeeze,
-input[type="tel"].squeeze,
-input[type=""].squeeze {
-  width: 14em;
-}
-input:not([type]).squeeze {
-  width: 14em;
-}
-textarea {
-  width: 32em;
-  max-width: 90%;
-  height: 10.72em;
-}
-textarea.squeeze {
-  width: 20em;
-  height: 4.02em;
-}
-button.plain,
-input.plain,
-textarea.plain {
-  border-width: 0;
-  padding: 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  border-style: solid;
-  background-color: transparent;
-  outline-color: transparent;
-  outline-style: solid;
-  color: inherit;
-  font-size: inherit;
-  font-family: inherit;
-  line-height: inherit;
-}
-button.plain:focus,
-input.plain:focus,
-textarea.plain:focus {
-  outline-offset: 0;
-  outline-width: 0;
-}
-input[type="search"].plain {
-  -webkit-appearance: textfield;
-}
-input.buffer,
-input.buffer-top,
-textarea.buffer,
-textarea.buffer-top {
-  padding-top: 0.35em;
-}
-input.buffer,
-input.buffer-right,
-textarea.buffer,
-textarea.buffer-right {
-  padding-right: 0.6em;
-}
-input.buffer,
-input.buffer-bottom,
-textarea.buffer,
-textarea.buffer-bottom {
-  padding-bottom: 0.4em;
-}
-input.buffer,
-input.buffer-left,
-textarea.buffer,
-textarea.buffer-left {
-  padding-left: 0.6em;
-}
-.row,
-.column {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.row {
-  width: 100%;
-  clear: both;
-  float: none;
-  *zoom: 1;
-}
-.row-content {
-  max-width: 70em;
-  margin: 0 auto;
-  *zoom: 1;
-}
-.row:after,
-.row-content:after {
-  content: " ";
-  display: table;
-  clear: both;
-}
-.row-content.buffer,
-.row-content.buffer-top {
-  padding-top: 2%;
-}
-.row-content.buffer.even,
-.row-content.buffer-top.even {
-  padding-top: 6%;
-}
-.row-content.buffer,
-.row-content.buffer-right {
-  padding-right: 8%;
-}
-.row-content.buffer,
-.row-content.buffer-bottom {
-  padding-bottom: 6%;
-}
-.row-content.buffer,
-.row-content.buffer-left {
-  padding-left: 8%;
-}
-.column.one,
-.column.two,
-.column.sixth,
-.column.fifth,
-.column.three,
-.column.fourth,
-.column.four,
-.column.twofifths,
-.column.twosixths,
-.column.third,
-.column.five,
-.column.six,
-.column.half,
-.column.threefifths,
-.column.threesixths,
-.column.twofourths,
-.column.seven,
-.column.eight,
-.column.fourfifths,
-.column.foursixths,
-.column.twothirds,
-.column.nine,
-.column.threefourths,
-.column.ten,
-.column.fivefifths,
-.column.fivesixths,
-.column.eleven,
-.column.twelve,
-.column.full {
-  clear: none;
-  float: left;
-  min-height: 1px;
-  margin-left: 0;
-  margin-right: 3.8%;
-}
-.column.right.one,
-.column.right.two,
-.column.right.fifth,
-.column.right.sixth,
-.column.right.three,
-.column.right.fourth,
-.column.right.four,
-.column.right.twofifths,
-.column.right.twosixths,
-.column.right.third,
-.column.right.five,
-.column.right.six,
-.column.right.half,
-.column.right.threefifths,
-.column.right.threesixths,
-.column.right.twofourths,
-.column.right.seven,
-.column.right.eight,
-.column.right.fourfifths,
-.column.right.foursixths,
-.column.right.twothirds,
-.column.right.nine,
-.column.right.threefourths,
-.column.right.ten,
-.column.right.fivefifths,
-.column.right.fivesixths,
-.column.right.eleven,
-.column.right.twelve,
-.column.right.full {
-  float: right;
-  margin-right: 0;
-  margin-left: 3.8%;
-}
-.column.first,
-.column.full,
-.column.twelve {
-  clear: both;
-}
-.column.reset {
-  margin-right: 0;
-}
-.column.right.reset {
-  margin-left: 0;
-}
-.column.full,
-.column.twelve {
-  width: 100%;
-}
-.column.fifth {
-  width: 16.95%;
-}
-.column.twofifths {
-  width: 37.7%;
-}
-.column.threefifths {
-  width: 58.45%;
-}
-.column.fourfifths {
-  width: 79.2%;
-}
-.column.push-fifth {
-  margin-left: 20.45%;
-}
-.column.right.push-fifth {
-  margin-right: 20.45%;
-}
-.column.push-twofifths {
-  margin-left: 41.5%;
-}
-.column.right.push-twofifths {
-  margin-right: 41.5%;
-}
-.column.push-threefifths {
-  margin-left: 62.25%;
-}
-.column.right.push-threefifths {
-  margin-right: 62.25%;
-}
-.column.push-fourfifths {
-  margin-left: 83%;
-}
-.column.right.push-fourfifths {
-  margin-right: 83%;
-}
-.column.one {
-  width: 4.85%;
-}
-.column.two,
-.column.sixth {
-  width: 13.45%;
-}
-.column.three,
-.column.fourth {
-  width: 22.05%;
-}
-.column.four,
-.column.twosixths,
-.column.third {
-  width: 30.75%;
-}
-.column.five {
-  width: 39.45%;
-}
-.column.six,
-.column.half,
-.column.threesixths,
-.column.twofourths {
-  width: 48%;
-}
-.column.seven {
-  width: 56.75%;
-}
-.column.eight,
-.column.foursixths,
-.column.twothirds {
-  width: 65.4%;
-}
-.column.nine,
-.column.threefourths {
-  width: 74.05%;
-}
-.column.ten,
-.column.fivesixths {
-  width: 82.7%;
-}
-.column.eleven {
-  width: 91.35%;
-}
-.column.push-one {
-  margin-left: 8.65%;
-}
-.column.right.push-one {
-  margin-right: 8.65%;
-}
-.column.push-two,
-.column.push-sixth {
-  margin-left: 17.25%;
-}
-.column.right.push-two,
-.column.right.push-sixth {
-  margin-right: 17.25%;
-}
-.column.push-three,
-.column.push-fourth {
-  margin-left: 25.85%;
-}
-.column.right.push-three,
-.column.right.push-fourth {
-  margin-right: 25.85%;
-}
-.column.push-four,
-.column.push-twosixths,
-.column.push-third {
-  margin-left: 34.55%;
-}
-.column.right.push-four,
-.column.right.push-twosixths,
-.column.right.push-third {
-  margin-right: 34.55%;
-}
-.column.push-five {
-  margin-left: 43.25%;
-}
-.column.right.push-five {
-  margin-right: 43.25%;
-}
-.column.push-six,
-.column.push-half,
-.column.push-threesixths,
-.column.push-twofourths {
-  margin-left: 51.8%;
-}
-.column.right.push-six,
-.column.right.push-half,
-.column.right.push-threesixths,
-.column.right.push-twofourths {
-  margin-right: 51.8%;
-}
-.column.push-seven {
-  margin-left: 60.55%;
-}
-.column.right.push-seven {
-  margin-right: 60.55%;
-}
-.column.push-eight,
-.column.push-foursixths,
-.column.push-twothirds {
-  margin-left: 69.2%;
-}
-.column.right.push-eight,
-.column.right.push-foursixths,
-.column.right.push-twothirds {
-  margin-right: 69.2%;
-}
-.column.push-nine,
-.column.push-threefourths {
-  margin-left: 77.85%;
-}
-.column.right.push-nine,
-.column.right.push-threefourths {
-  margin-right: 77.85%;
-}
-.column.push-ten,
-.column.push-fivesixths {
-  margin-left: 86.5%;
-}
-.column.right.push-ten,
-.column.right.push-fivesixths {
-  margin-right: 86.5%;
-}
-.column.push-eleven {
-  margin-left: 95.15%;
-}
-.column.right.push-eleven {
-  margin-right: 95.15%;
-}
-.column.one.reset {
-  width: 8.3%;
-}
-.column.two.reset,
-.column.sixth.reset {
-  width: 16.65%;
-}
-.column.fifth.reset {
-  width: 20%;
-}
-.column.three.reset,
-.column.fourth.reset {
-  width: 25%;
-}
-.column.four.reset,
-.column.twosixths.reset,
-.column.third.reset {
-  width: 33.3%;
-}
-.column.twofifths.reset {
-  width: 40%;
-}
-.column.five.reset {
-  width: 41.65%;
-}
-.column.six.reset,
-.column.half.reset,
-.column.threesixths.reset,
-.column.twofourths.reset {
-  width: 50%;
-}
-.column.seven.reset {
-  width: 58.3%;
-}
-.column.threefifths.reset {
-  width: 60%;
-}
-.column.eight.reset,
-.column.foursixths.reset,
-.column.twothirds.reset {
-  width: 66.6%;
-}
-.column.nine.reset,
-.column.threefourths.reset {
-  width: 75%;
-}
-.column.fourfifths.reset {
-  width: 80%;
-}
-.column.ten.reset,
-.column.fivesixths.reset {
-  width: 83.35%;
-}
-.column.eleven.reset {
-  width: 91.7%;
-}
-.column.reset.push-one {
-  margin-left: 8.3%;
-}
-.column.reset.right.push-one {
-  margin-right: 8.3%;
-}
-.column.reset.push-two,
-.column.reset.push-sixth {
-  margin-left: 16.65%;
-}
-.column.reset.right.push-two,
-.column.reset.right.push-sixth {
-  margin-right: 16.65%;
-}
-.column.reset.push-fifth {
-  margin-left: 20%;
-}
-.column.reset.right.push-fifth {
-  margin-right: 20%;
-}
-.column.reset.push-three,
-.column.reset.push-fourth {
-  margin-left: 25%;
-}
-.column.reset.right.push-three,
-.column.reset.right.push-fourth {
-  margin-right: 25%;
-}
-.column.reset.push-four,
-.column.reset.push-twosixths,
-.column.reset.push-third {
-  margin-left: 33.3%;
-}
-.column.reset.right.push-four,
-.column.reset.right.push-twosixths,
-.column.reset.right.push-third {
-  margin-right: 33.3%;
-}
-.column.reset.push-twofifths {
-  margin-left: 40%;
-}
-.column.reset.right.push-twofifths {
-  margin-right: 40%;
-}
-.column.reset.push-five {
-  margin-left: 41.65%;
-}
-.column.reset.right.push-five {
-  margin-right: 41.65%;
-}
-.column.reset.push-six,
-.column.reset.push-half,
-.column.reset.push-threesixths,
-.column.reset.push-twofourths {
-  margin-left: 50%;
-}
-.column.reset.right.push-six,
-.column.right.reset.push-half,
-.column.right.reset.push-threesixths,
-.column.right.reset.push-twofourths {
-  margin-right: 50%;
-}
-.column.reset.push-seven {
-  margin-left: 58.3%;
-}
-.column.reset.right.push-seven {
-  margin-right: 58.3%;
-}
-.column.reset.push-threefifths {
-  margin-left: 60%;
-}
-.column.reset.right.push-threefifths {
-  margin-right: 60%;
-}
-.column.reset.push-eight,
-.column.reset.push-foursixths,
-.column.reset.push-twothirds {
-  margin-left: 66.6%;
-}
-.column.reset.right.push-eight,
-.column.reset.right.push-foursixths,
-.column.reset.right.push-twothirds {
-  margin-right: 66.6%;
-}
-.column.reset.push-nine,
-.column.reset.push-threefourths {
-  margin-left: 75%;
-}
-.column.reset.right.push-nine,
-.column.reset.right.push-threefourths {
-  margin-right: 75%;
-}
-.column.reset.push-fourfifths {
-  margin-left: 80%;
-}
-.column.reset.right.push-fourfifths {
-  margin-right: 80%;
-}
-.column.reset.push-ten,
-.column.reset.push-fivesixths {
-  margin-left: 83.35%;
-}
-.column.reset.right.push-ten,
-.column.reset.right.push-fivesixths {
-  margin-right: 83.35%;
-}
-.column.reset.push-eleven {
-  margin-left: 91.7%;
-}
-.column.reset.right.push-eleven {
-  margin-right: 91.7%;
-}
-.column.last {
-  margin-right: 0;
-}
-.column.right.last {
-  margin-left: 0;
-}
-.column.fluid {
-  clear: none;
-  float: left;
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-}
-.column.fluid > .column-content {
-  margin-right: 10em;
-}
-.column.fixed {
-  position: static;
-  clear: none;
-  float: right;
-  margin-right: 0;
-  margin-left: -100%;
-  width: 10em;
-}
-.column.fluid.right > .column-content {
-  margin-right: 0;
-  margin-left: 10em;
-}
-.column.fixed.right {
-  float: left;
-}
-ul.plain,
-ul.plain ul,
-ul.plain ol,
-ol.plain,
-ol.plain ul,
-ol.plain ol,
-ul.inline,
-ol.inline,
-ul.collapse,
-ol.collapse {
+input[type="text"],
+input[type="url"],
+textarea,
+select {
+  -webkit-appearance: none; /* 1 */
+  -moz-appearance: none; /* 1 */
+  appearance: none; /* 1 */
+  box-shadow: none; /* 1 */
+  box-sizing: inherit; /* 1 */
+  padding: .2rem .5rem; /* 1 */
+  width: 100%; /* 1 */
+  font-size: 1rem; /* 1 */
+  color: var(--fg); /* 2 */
+  background-color: var(--bg); /* 2 */
+  border: .1rem solid var(--fg); /* 2 */
+  border-radius: 0; /* 2 */
+  font-family: Helvetica, Arial, sans-serif; /* 3 */
+}
+
+/**
+ * Set margin for form elements.
+ */
+
+fieldset, input, select, textarea {
+  margin: 0 0 .8rem 0;
+}
+
+/**
+ * 1. Set the font color for the placeholder in inputs.
+ * 2. Set font-style to italic for the placeholder in inputs.
+ */
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--fg); /* 1 */
+  font-style: italic; /* 2 */
+  opacity: 1;
+}
+
+/**
+ * 1. Expand width to 100% for the table element.
+ * 2. Remove the distance between the borders of adjacent table cells.
+ */
+
+table {
+  width: 100%; /* 1 */
+  border-spacing: 0; /* 2 */
+}
+
+/**
+ * Add padding around table cells.
+ */
+
+td, th {
+  padding: .4rem;
+}
+
+/**
+ * Remove left padding for first cell in a row.
+ */
+
+td:first-child, th:first-child {
   padding-left: 0;
-  list-style-type: none;
 }
-ul.plain ul,
-ul.plain ol,
-ol.plain ul,
-ol.plain ol,
-ul.inline ul,
-ul.inline ol,
-ol.inline ul,
-ol.inline ol,
-ul.collapse ul,
-ul.collapse ol,
-ol.collapse ul,
-ol.collapse ol {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-dl.plain dt {
-  font-weight: inherit;
-}
-ul.inline.right,
-ol.inline.right,
-dl.inline.right {
-  text-align: right;
-}
-ul.inline.center,
-ol.inline.center,
-dl.inline.center {
-  text-align: center;
-}
-ul.inline > li,
-ol.inline > li,
-dl.inline > dt,
-dl.inline > dd {
-  display: inline;
-}
-ul.collapse,
-ol.collapse,
-dl.collapse {
-  float: left;
-  clear: none;
-}
-ul.collapse.right,
-ol.collapse.right,
-dl.collapse.right {
-  float: right;
-}
-ul.collapse > li,
-ol.collapse > li,
-dl.collapse > dt,
-dl.collapse > dd {
-  float: left;
-  clear: none;
-}
-html {
-  line-height: 1.34;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 1.34em;
-  margin-bottom: 0.67em;
-}
-p,
-ul,
-ol,
-table,
-pre,
-blockquote {
-  margin-top: 0.67em;
-  margin-bottom: 1.34em;
-}
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin-top: 0;
-  margin-bottom: 0.67em;
-}
-dl {
-  margin-bottom: 1.34em;
-}
-dl.plain {
-  margin-top: 0.67em;
-}
-dl.reset,
-dl.reset-top {
-  margin-top: 0;
-}
-dt {
-  margin-top: 0.67em;
-  margin-bottom: 0;
-}
-dl.plain > dt,
-dl.inline > dt,
-dl.collapse > dt {
-  margin-top: 0;
-}
-dd {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: 0;
-}
-caption {
-  margin-bottom: 0.67em;
-}
-th,
-td {
-  padding: 0.67em;
-}
-.squeeze th,
-.squeeze td,
-th.squeeze,
-td.squeeze,
-table table th,
-table table td {
-  padding: 0.335em;
-}
-table.plain th,
-table.plain td,
-tr.plain th,
-tr.plain td,
-tbody.plain th,
-tbody.plain td,
-thead.plain th,
-thead.plain td,
-tfoot.plain th,
-tfoot.plain td,
-th.plain,
-td.plain {
-  padding: 0;
-}
-h1.squeeze,
-h2.squeeze,
-h3.squeeze,
-h4.squeeze,
-h5.squeeze,
-h6.squeeze,
-h1.squeeze-top,
-h2.squeeze-top,
-h3.squeeze-top,
-h4.squeeze-top,
-h5.squeeze-top,
-h6.squeeze-top {
-  margin-top: 0.67em;
-}
-p.squeeze,
-ul.squeeze,
-ol.squeeze,
-table.squeeze,
-pre.squeeze,
-blockquote.squeeze,
-p.squeeze-top,
-ul.squeeze-top,
-ol.squeeze-top,
-table.squeeze-top,
-pre.squeeze-top,
-blockquote.squeeze-top {
-  margin-top: 0.335em;
-}
-h1.squeeze,
-h2.squeeze,
-h3.squeeze,
-h4.squeeze,
-h5.squeeze,
-h6.squeeze,
-h1.squeeze-bottom,
-h2.squeeze-bottom,
-h3.squeeze-bottom,
-h4.squeeze-bottom,
-h5.squeeze-bottom,
-h6.squeeze-bottom {
-  margin-bottom: 0.335em;
-}
-p.squeeze,
-ul.squeeze,
-ol.squeeze,
-table.squeeze,
-pre.squeeze,
-blockquote.squeeze,
-p.squeeze-bottom,
-ul.squeeze-bottom,
-ol.squeeze-bottom,
-table.squeeze-bottom,
-pre.squeeze-bottom,
-blockquote.squeeze-bottom {
-  margin-bottom: 0.67em;
-}
-.push,
-.push-top {
-  margin-top: 1.34em;
-}
-.push,
-.push-right {
-  margin-right: 1.34em;
-}
-.push,
-.push-bottom {
-  margin-bottom: 1.34em;
-}
-.push,
-.push-left {
-  margin-left: 1.34em;
-}
-.reset,
-.reset-top {
-  margin-top: 0;
-}
-.reset,
-.reset-right {
-  margin-right: 0;
-}
-.reset,
-.reset-bottom {
-  margin-bottom: 0;
-}
-.reset,
-.reset-left {
-  margin-left: 0;
-}
-.buffer,
-.buffer-top {
-  padding-top: 1em;
-}
-.buffer.even,
-.buffer-top.even {
-  padding-top: 2em;
-}
-.buffer,
-.buffer-right {
-  padding-right: 2em;
-}
-.buffer,
-.buffer-bottom {
-  padding-bottom: 2em;
-}
-.buffer,
-.buffer-left {
-  padding-left: 2em;
-}
-.no-buffer,
-.no-buffer-top {
-  padding-top: 0;
-}
-.no-buffer,
-.no-buffer-right {
+
+/**
+ * Remove right padding for last cell in a row.
+ */
+
+td:last-child, th:last-child {
   padding-right: 0;
 }
-.no-buffer,
-.no-buffer-bottom {
-  padding-bottom: 0;
+
+/**
+ * 1. Add a border under the table header.
+ * 2. Align the text to the left in the table header.
+ */
+
+th {
+  border-bottom: .1rem solid var(--fg); /* 1 */
+  text-align: left; /* 2 */
 }
-.no-buffer,
-.no-buffer-left {
-  padding-left: 0;
+
+/**
+ * Add a thiner border under table rows.
+ */
+
+td {
+  border-bottom: .05rem solid var(--fg);
 }
-th.left,
-td.left {
-  text-align: left;
+
+/**
+ * 1. Change the margins and padding.
+ * 2. Add a border on the left of these elements.
+ * 3. Set the y overflow to hidden to hide the navigation bar.
+ */
+
+blockquote, pre {
+  margin-left: 0; /* 1 */
+  margin-right: 0; /* 1 */
+  padding: .5rem .8rem; /* 1 */
+  border-left: .1rem solid var(--fg); /* 2 */
+  overflow-y: hidden; /* 3 */
 }
-th.right,
-td.right {
-  text-align: right;
+
+/**
+ * 1. Set the rest of the border of the preformatted element to dotted.
+ * 2. Re-set the left border style.
+ */
+
+pre {
+  border: .05rem dotted var(--fg); /* 1 */
+  border-left: .1rem solid var(--fg); /* 2 */
 }
-th.center,
-td.center {
-  text-align: center;
+
+/**
+ * 1. Modify the display of the code block.
+ * 2. Reduce the font size of the code block.
+ */
+
+pre > code {
+  white-space: pre; /* 1 */
+  display: block; /* 1 */
+  font-size: .8rem; /* 2 */
 }
-th.top,
-td.top {
-  vertical-align: top;
+
+/**
+ * 1. Modify the display of the progress bar in all browsers.
+ * 2. Set the colors and border of the progress bar.
+ */
+
+progress {
+  -moz-appearance: none; /* 1 */
+  -webkit-appearance: none; /* 1 */
+  display: block; /* 1 */
+  height: .5rem; /* 1 */
+  overflow: hidden; /* 1 */
+  padding: 0; /* 1 */
+  width: 100%; /* 1 */
+  background: var(--bg); /* 2 */
+  color: var(--fg); /* 2 */
+  border: .1rem solid var(--fg); /* 2 */
+  border-radius: 0; /* 2 */
 }
-th.vertical-center,
-td.vertical-center,
-th.middle,
-td.middle {
-  vertical-align: middle;
+
+/**
+ * Set the background color of the webkit progress bar.
+ */
+
+progress::-webkit-progress-bar {
+  background-color: var(--bg);
 }
-th.bottom,
-td.bottom {
-  vertical-align: bottom;
+
+/**
+ * Set the color of the webkit progress bar.
+ */
+
+progress::-webkit-progress-value {
+  background-color: var(--fg);
 }
-html {
-  word-break: break-word;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -epub-hyphens: auto;
-  hyphens: auto;
+
+/**
+ * Set the color of the mozilla progress bar.
+ */
+
+progress::-moz-progress-bar {
+  background-color: var(--fg);
 }
-input,
-textarea {
-  word-break: normal;
-}
-html {
-  font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Lucida Grande",
-    "Ubuntu", "Roboto", "Arial", sans-serif;
-}
-blockquote,
-q {
-  font-family: "Droid Serif", "Georgia", serif;
-}
-pre,
-code,
-kbd,
-samp {
-  font-family: "Menlo", "Monaco", "Segoe UI Mono", "Droid Sans Mono", "Consolas",
-    monospace;
-  font-size: 0.9em;
-}
-pre code,
-pre kbd,
-pre samp {
-  font-size: 1em;
-}
-h1,
-h2,
-h3 {
-  text-rendering: optimizeLegibility;
-}
-.keep-left,
-.keep-right {
-  clear: none;
-}
-.keep-left {
-  float: left;
-}
-.keep-right {
-  float: right;
-}
-.keep-center {
-  margin-right: auto;
-  margin-left: auto;
-}
-.static {
-  position: static;
-}
-.relative {
-  position: relative;
-}
-.absolute {
-  position: absolute;
-}
-.fixed {
-  position: fixed;
-}
-.block {
-  display: block;
-}
-.inline-block {
-  display: inline-block;
-}
-.inline {
-  display: inline;
-}
-ul.inline,
-ol.inline,
-dl.inline {
-  display: block;
-}
-.hidden {
-  display: none;
-}
-.clear {
-  clear: both;
-}
-.clear-after:after {
-  content: " ";
-  display: table;
-  clear: both;
-}
-.clear-after {
-  *zoom: 1;
-}
-.dry {
-  text-indent: -9999em;
-  direction: ltr;
-}
-.content-box {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-}
-.border-box,
-button.border-box,
-input.border-box,
-textarea.border-box {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+
+/**
+ * Set the border for the horizontal rule.
+ */
+
+hr {
+  border: .05rem solid var(--fg);
 }
