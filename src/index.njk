@@ -1,6 +1,34 @@
----
-layout: layouts/base.njk
-title: Home
----
-<p>Welcome to the minimal Eleventy site!</p>
-<img src="/images/600.jpg" alt="Example Image" loading="lazy" decoding="async">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description | default('A brief description of my site.') }}">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.url | url }}">
+
+  <!-- Open Graph & Twitter meta tags (reusing title & description) -->
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description | default('A brief description of my site.') }}">
+  <meta property="og:url" content="{{ page.url | url }}">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description | default('A brief description of my site.') }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  {% include "partials/header.njk" %}
+  <main>
+    {{ content | safe }}
+  </main>
+  {% include "partials/footer.njk" %}
+  <script src="/js/main.js"></script>
+</body>
+</html>
