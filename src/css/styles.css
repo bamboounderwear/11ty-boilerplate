@@ -14,10 +14,10 @@
   --grid-gutter: 2rem;
   --font-size: 1.6rem;
   --font-color: #333;
-  --font-family-sans: -apple-system, "BlinkMacSystemFont", "Avenir",
+  --font-family-sans: "Inter", -apple-system, "BlinkMacSystemFont", "Avenir",
     "Avenir Next", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
+  --font-family-mono: "Space Mono", monaco, "Consolas", "Lucida Console", monospace;
 }
 html {
   -webkit-box-sizing: border-box;
