@@ -13,7 +13,7 @@ html {
 @import url("https://rsms.me/inter/inter.css");
 @import url("https://rsms.me/res/fonts/iaw.css");
 :root {
-  --fontSize: 12px;
+  --fontSize: 16px;
   --sansFont: "Inter";
   --monoFont: "iaw-mono";
   --lineHeight: calc(var(--fontSize) * 1.5);
