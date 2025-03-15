@@ -3,8 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
   <title>{{ title }}</title>
+  <meta name="description" content="{{ description | default('A brief description of my site.') }}">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.url | url }}">
+
+  <!-- Open Graph & Twitter meta tags (reusing title & description) -->
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description | default('A brief description of my site.') }}">
+  <meta property="og:url" content="{{ page.url | url }}">
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description | default('A brief description of my site.') }}">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +29,6 @@
     {{ content | safe }}
   </main>
   {% include "partials/footer.njk" %}
-  <!-- Link to the JavaScript file -->
   <script src="/js/main.js"></script>
 </body>
 </html>
