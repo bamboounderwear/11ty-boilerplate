@@ -1,10 +1,10 @@
 {
-	"name": "eleventy-basic-setup",
+	"name": "eleventy-tailwind-boilerplate",
 	"version": "1.0.0",
-	"description": "A minimal Eleventy setup with partials, layouts, PostCSS, Eleventy Image plugin and Prettier.",
+	"description": "A minimal Eleventy boilerplate with Tailwind CSS integration",
 	"scripts": {
 	  "start": "eleventy --serve",
-	  "build": "eleventy && npm run postcss",
+	  "build": "eleventy && postcss src/css/styles.css -o dist/css/styles.css",
 	  "postcss": "postcss src/css/styles.css -o dist/css/styles.css",
 	  "prettier": "prettier --write \"**/*.{js,css,njk,json,md}\""
 	},
@@ -12,9 +12,11 @@
 	  "@11ty/eleventy": "^3.0.0"
 	},
 	"devDependencies": {
-	  "autoprefixer": "^10.4.21",
-	  "postcss": "^8.5.3",
-	  "postcss-cli": "^11.0.1",
-	  "prettier": "^3.5.3"
+	  "tailwindcss": "^3.3.2",
+	  "postcss": "^8.4.21",
+	  "postcss-cli": "^10.1.0",
+	  "autoprefixer": "^10.4.13",
+	  "prettier": "^2.8.8"
 	}
   }
+  
