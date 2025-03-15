@@ -1724,6 +1724,7 @@ h6 > a:hover {
 img,
 img:first-child,
 img:last-child {
+  max-width: 100%;
   display: block;
   margin-top: var(--baseline);
   margin-bottom: var(--baseline);
