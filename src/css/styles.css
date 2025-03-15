@@ -1,3 +1,44 @@
+/* Global Reset & Base Styles */
+
+/* Ensure predictable sizing by including padding and border in element dimensions */
+html {
+  box-sizing: border-box;
+  font-size: 100%;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/* Base Typography */
+body {
+  font-family: var(--sansFont), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+/* Responsive Images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Basic Anchor Reset */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:focus {
+  outline: 2px solid var(--blue); /* Adjust color as needed */
+}
+
+/* Reset lists for better control */
+ul, ol {
+  list-style: none;
+}
+
 @import url("https://rsms.me/inter/inter.css");
 @import url("https://rsms.me/res/fonts/iaw.css");
 :root {
