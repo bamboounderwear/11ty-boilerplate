@@ -121,3 +121,77 @@ meter {
 ***/
 
 /* Your component styles here, which can now reference the above variables */
+
+/* Grid container: Default is stacking (1 column) */
+.grid {
+  display: grid;
+  gap: 1rem; /* Adjust gap as needed */
+  grid-template-columns: 1fr;
+}
+
+/* On breakpoints, the grid container becomes a 12‑column grid */
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+/* Grid item column span classes for the 12-column layout */
+
+/* Small breakpoint (min-width: 640px) */
+@media (min-width: 640px) {
+  .sm\:col-1  { grid-column: span 1; }
+  .sm\:col-2  { grid-column: span 2; }
+  .sm\:col-3  { grid-column: span 3; }
+  .sm\:col-4  { grid-column: span 4; }
+  .sm\:col-5  { grid-column: span 5; }
+  .sm\:col-6  { grid-column: span 6; }
+  .sm\:col-7  { grid-column: span 7; }
+  .sm\:col-8  { grid-column: span 8; }
+  .sm\:col-9  { grid-column: span 9; }
+  .sm\:col-10 { grid-column: span 10; }
+  .sm\:col-11 { grid-column: span 11; }
+  .sm\:col-12 { grid-column: span 12; }
+}
+
+/* Medium breakpoint (min-width: 768px) */
+@media (min-width: 768px) {
+  .md\:col-1  { grid-column: span 1; }
+  .md\:col-2  { grid-column: span 2; }
+  .md\:col-3  { grid-column: span 3; }
+  .md\:col-4  { grid-column: span 4; }
+  .md\:col-5  { grid-column: span 5; }
+  .md\:col-6  { grid-column: span 6; }
+  .md\:col-7  { grid-column: span 7; }
+  .md\:col-8  { grid-column: span 8; }
+  .md\:col-9  { grid-column: span 9; }
+  .md\:col-10 { grid-column: span 10; }
+  .md\:col-11 { grid-column: span 11; }
+  .md\:col-12 { grid-column: span 12; }
+}
+
+/* Large breakpoint (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .lg\:col-1  { grid-column: span 1; }
+  .lg\:col-2  { grid-column: span 2; }
+  .lg\:col-3  { grid-column: span 3; }
+  .lg\:col-4  { grid-column: span 4; }
+  .lg\:col-5  { grid-column: span 5; }
+  .lg\:col-6  { grid-column: span 6; }
+  .lg\:col-7  { grid-column: span 7; }
+  .lg\:col-8  { grid-column: span 8; }
+  .lg\:col-9  { grid-column: span 9; }
+  .lg\:col-10 { grid-column: span 10; }
+  .lg\:col-11 { grid-column: span 11; }
+  .lg\:col-12 { grid-column: span 12; }
+}
