@@ -1,5 +1,4 @@
-// src/js/main.js
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("JavaScript is successfully loaded!");
-  });
-  
+    // navbar
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
