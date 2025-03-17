@@ -1,27 +1,6 @@
-{% if pagination.pages.length > 1 %}
-<nav aria-label="Projects Pagination">
-  <ul class="pagination">
-    {% if pagination.href.previous %}
-      <li class="page-item">
-        <a href="{{ pagination.href.previous }}" class="page-link">Previous</a>
-      </li>
-    {% endif %}
-    {% for pageNumber in pagination.pages %}
-      <li class="page-item{% if pageNumber == pagination.pageNumber %} active{% endif %}">
-        <a class="page-link" href="{{ pagination.hrefs[pageNumber] }}">{{ pageNumber + 1 }}</a>
-      </li>
-    {% endfor %}
-    {% if pagination.href.next %}
-      <li class="page-item">
-        <a href="{{ pagination.href.next }}" class="page-link">Next</a>
-      </li>
-    {% endif %}
-  </ul>
-</nav>
-{% endif %}
-
+{% set projects = collections.projects | reverse | slice(0, 12) %}
 <div class="projects-list row">
-  {% for project in pagination.items %}
+  {% for project in projects %}
     <div class="col-md-3 mb-4">
       <div class="card">
         {% if project.data.image %}
