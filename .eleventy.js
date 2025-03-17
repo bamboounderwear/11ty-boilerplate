@@ -6,22 +6,16 @@ module.exports = function(eleventyConfig) {
   const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  // Blog collection: Look in src/blog for any .njk file, and filter out index.njk if needed
+  // Blog collection: Include all .njk files in src/blog and exclude those marked as listing
   eleventyConfig.addCollection("blog", function(collectionApi) {
-    let items = collectionApi.getFilteredByGlob("src/blog/**/*.njk");
-    // Uncomment the following line if you want to exclude index.njk files
-    items = items.filter(item => !item.inputPath.endsWith("index.njk"));
-    console.log("Blog items count:", items.length);
-    return items;
+    return collectionApi.getFilteredByGlob("src/blog/**/*.njk")
+      .filter(item => !item.data.listing);
   });
 
-  // Projects collection: Look in src/projects for any .njk file, and filter out index.njk if needed
+  // Projects collection: Include all .njk files in src/projects and exclude those marked as listing
   eleventyConfig.addCollection("projects", function(collectionApi) {
-    let items = collectionApi.getFilteredByGlob("src/projects/**/*.njk");
-    // Uncomment the following line if you want to exclude index.njk files
-    items = items.filter(item => !item.inputPath.endsWith("index.njk"));
-    console.log("Projects items count:", items.length);
-    return items;
+    return collectionApi.getFilteredByGlob("src/projects/**/*.njk")
+      .filter(item => !item.data.listing);
   });
 
   return {
