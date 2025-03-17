@@ -1,0 +1,39 @@
+{% if pagination.pages.length > 1 %}
+<nav aria-label="Projects Pagination">
+  <ul class="pagination">
+    {% if pagination.href.previous %}
+      <li class="page-item">
+        <a href="{{ pagination.href.previous }}" class="page-link">Previous</a>
+      </li>
+    {% endif %}
+    {% for pageNumber in pagination.pages %}
+      <li class="page-item{% if pageNumber == pagination.pageNumber %} active{% endif %}">
+        <a class="page-link" href="{{ pagination.hrefs[pageNumber] }}">{{ pageNumber + 1 }}</a>
+      </li>
+    {% endfor %}
+    {% if pagination.href.next %}
+      <li class="page-item">
+        <a href="{{ pagination.href.next }}" class="page-link">Next</a>
+      </li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+
+<div class="projects-list row">
+  {% for project in pagination.items %}
+    <div class="col-md-3 mb-4">
+      <div class="card">
+        {% if project.data.image %}
+          <img src="{{ project.data.image }}" class="card-img-top" alt="{{ project.data.title }}">
+        {% endif %}
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="{{ project.url }}">{{ project.data.title }}</a>
+          </h5>
+          <p class="card-text">{{ project.data.description }}</p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>

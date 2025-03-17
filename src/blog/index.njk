@@ -1,0 +1,9 @@
+---
+pagination:
+  data: collections.blog
+  size: 8
+  alias: posts
+permalink: "/blog/{{ pagination.pageNumber }}/index.html"
+---
+
+{% include "partials/postsList.njk" %}

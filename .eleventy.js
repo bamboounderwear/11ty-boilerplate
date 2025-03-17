@@ -8,6 +8,16 @@ module.exports = function(eleventyConfig) {
   // Add the Eleventy Navigation plugin
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
+  // Create a "blog" collection from all files in /src/blog
+  eleventyConfig.addCollection("blog", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/blog/**/*.njk");
+  });
+
+  // Create a "projects" collection from all files in /src/projects
+  eleventyConfig.addCollection("projects", function(collectionApi) {
+    return collectionApi.getFilteredByGlob("src/projects/**/*.njk");
+  });
+
   return {
     dir: {
       input: "src",

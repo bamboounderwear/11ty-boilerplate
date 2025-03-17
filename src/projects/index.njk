@@ -1,0 +1,9 @@
+---
+pagination:
+  data: collections.projects
+  size: 8
+  alias: projects
+permalink: "/projects/{{ pagination.pageNumber }}/index.html"
+---
+
+{% include "partials/projectsList.njk" %}
