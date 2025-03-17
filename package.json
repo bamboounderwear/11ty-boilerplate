@@ -1,22 +1,16 @@
 {
-	"name": "eleventy-tailwind-boilerplate",
-	"version": "1.0.0",
-	"description": "A minimal Eleventy boilerplate with Tailwind CSS integration",
-	"scripts": {
-	  "start": "eleventy --serve",
-	  "build": "eleventy && postcss src/css/styles.css -o dist/css/styles.css",
-	  "postcss": "postcss src/css/styles.css -o dist/css/styles.css",
-	  "prettier": "prettier --write \"**/*.{js,css,njk,json,md}\""
-	},
-	"dependencies": {
-	  "@11ty/eleventy": "^3.0.0"
-	},
-	"devDependencies": {
-	  "tailwindcss": "^3.3.2",
-	  "postcss": "^8.4.21",
-	  "postcss-cli": "^10.1.0",
-	  "autoprefixer": "^10.4.13",
-	  "prettier": "^2.8.8"
-	}
+    "name": "eleventy-bootstrap-boilerplate",
+    "version": "1.0.0",
+    "description": "A simple Eleventy boilerplate with Bootstrap and partials/layouts.",
+    "main": ".eleventy.js",
+    "scripts": {
+      "build": "eleventy",
+      "start": "eleventy --serve"
+    },
+    "dependencies": {
+      "@11ty/eleventy": "^2.0.1"
+    },
+    "author": "Your Name",
+    "license": "MIT"
   }
   
