@@ -3,6 +3,9 @@
     {% for post in posts %}
       <div class="col-md-4 mb-4">
         <article class="card h-100">
+          {% if post.data.featuredImage %}
+            <img src="{{ post.data.featuredImage }}" alt="{{ post.data.title }} Featured Image" class="card-img-top">
+          {% endif %}
           <div class="card-body">
             <h2 class="card-title h5">
               <a href="{{ post.url }}" class="text-decoration-none">{{ post.data.title }}</a>

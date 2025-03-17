@@ -14,16 +14,16 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ pageTitle }} - {{ site.title }}">
   <meta property="og:description" content="{{ metaDescription or site.description }}">
-  {% if ogImage %}
-  <meta property="og:image" content="{{ ogImage }}">
+  {% if featuredImage %}
+  <meta property="og:image" content="{{ featuredImage }}">
   {% endif %}
 
   {# Twitter meta tags #}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ pageTitle }} - {{ site.title }}">
   <meta name="twitter:description" content="{{ metaDescription or site.description }}">
-  {% if ogImage %}
-  <meta name="twitter:image" content="{{ ogImage }}">
+  {% if featuredImage %}
+  <meta name="twitter:image" content="{{ featuredImage }}">
   {% endif %}
 
   <!-- Include your compiled CSS -->
