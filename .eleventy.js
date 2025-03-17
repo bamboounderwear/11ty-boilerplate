@@ -17,7 +17,6 @@ module.exports = function(eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/projects/**/*.njk")
       .filter(item => !item.inputPath.endsWith("index.njk"));
   });
-  
 
   return {
     dir: {
