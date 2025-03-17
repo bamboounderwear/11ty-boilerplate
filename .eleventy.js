@@ -1,21 +1,27 @@
 module.exports = function(eleventyConfig) {
-  // Passthrough copies for CSS and assets
+  // Copy CSS and assets directories to the output folder
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
 
-  // Navigation plugin if needed
   const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
+  // Blog collection: Look in src/blog for any .njk file, and filter out index.njk if needed
   eleventyConfig.addCollection("blog", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/blog/**/*.njk")
-      // Exclude the blog index file if it’s in the same folder.
-      .filter(item => !item.inputPath.endsWith("index.njk"));
+    let items = collectionApi.getFilteredByGlob("src/blog/**/*.njk");
+    // Uncomment the following line if you want to exclude index.njk files
+    items = items.filter(item => !item.inputPath.endsWith("index.njk"));
+    console.log("Blog items count:", items.length);
+    return items;
   });
-  
+
+  // Projects collection: Look in src/projects for any .njk file, and filter out index.njk if needed
   eleventyConfig.addCollection("projects", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/projects/**/*.njk")
-      .filter(item => !item.inputPath.endsWith("index.njk"));
+    let items = collectionApi.getFilteredByGlob("src/projects/**/*.njk");
+    // Uncomment the following line if you want to exclude index.njk files
+    items = items.filter(item => !item.inputPath.endsWith("index.njk"));
+    console.log("Projects items count:", items.length);
+    return items;
   });
 
   return {
