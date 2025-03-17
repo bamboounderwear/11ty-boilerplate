@@ -6,5 +6,5 @@ metaDescription: "List of all projects."
 permalink: "/projects/index.html"
 ---
 
-{% set limitedProjects = collections.projects | reverse | slice(0, 12) %}
-{% include "partials/projectsList.njk" with { projects: limitedProjects } %}
+{% set projects = collections.projects | reverse %}
+{% include "partials/projectsList.njk" %}

@@ -1,11 +1,17 @@
 {% if posts and posts.length > 0 %}
-  <p>Blog collection count (in partial): {{ posts.length }}</p>
-  <div>
+  <div class="row">
     {% for post in posts %}
-      <article>
-        <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
-        <p>{{ post.data.metaDescription }}</p>
-      </article>
+      <div class="col-md-4 mb-4">
+        <article class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title h5">
+              <a href="{{ post.url }}" class="text-decoration-none">{{ post.data.title }}</a>
+            </h2>
+            <p class="card-text">{{ post.data.metaDescription }}</p>
+            <div class="text-muted small">{{ post.data.date | date }}</div>
+          </div>
+        </article>
+      </div>
     {% endfor %}
   </div>
 {% else %}

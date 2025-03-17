@@ -6,5 +6,5 @@ metaDescription: "List of all blog posts."
 permalink: "/blog/index.html"
 ---
 
-{% set limitedPosts = collections.blog | reverse | slice(0, 12) %}
-{% include "partials/postsList.njk" with { posts: limitedPosts } %}
+{% set posts = collections.blog | reverse %}
+{% include "partials/postsList.njk" %}

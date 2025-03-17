@@ -1,11 +1,17 @@
 {% if projects and projects.length > 0 %}
-  <p>Projects collection count (in partial): {{ projects.length }}</p>
-  <div>
+  <div class="row">
     {% for project in projects %}
-      <article>
-        <h2><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
-        <p>{{ project.data.metaDescription }}</p>
-      </article>
+      <div class="col-md-4 mb-4">
+        <article class="card h-100">
+          <div class="card-body">
+            <h2 class="card-title h5">
+              <a href="{{ project.url }}" class="text-decoration-none">{{ project.data.title }}</a>
+            </h2>
+            <p class="card-text">{{ project.data.metaDescription }}</p>
+            <div class="text-muted small">{{ project.data.date | date }}</div>
+          </div>
+        </article>
+      </div>
     {% endfor %}
   </div>
 {% else %}

@@ -6,19 +6,20 @@ module.exports = function(eleventyConfig) {
   const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-   // Debugging: log how many items are found in each collection
-   eleventyConfig.addCollection("blog", (collectionApi) => {
-    let items = collectionApi.getFilteredByGlob("src/blog/*.njk");
-    items = items.filter(item => !item.inputPath.endsWith("index.njk"));
-    console.log("Blog items count:", items.length);
-    return items;
+  // Add date filter
+  eleventyConfig.addFilter("date", function(date, format) {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(date).toLocaleDateString('en-US', options).replace(/\//g, '-');
   });
 
+  // Blog collection
+  eleventyConfig.addCollection("blog", (collectionApi) => {
+    return collectionApi.getFilteredByTags("blog");
+  });
+
+  // Projects collection
   eleventyConfig.addCollection("projects", (collectionApi) => {
-    let items = collectionApi.getFilteredByGlob("src/projects/*.njk");
-    items = items.filter(item => !item.inputPath.endsWith("index.njk"));
-    console.log("Projects items count:", items.length);
-    return items;
+    return collectionApi.getFilteredByTags("project");
   });
 
   return {
