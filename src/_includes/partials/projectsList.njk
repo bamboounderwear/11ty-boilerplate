@@ -3,14 +3,14 @@
   {% for project in projects %}
     <div class="col-md-3 mb-4">
       <div class="card">
-        {% if project.data.image %}
-          <img src="{{ project.data.image }}" class="card-img-top" alt="{{ project.data.title }}">
+        {% if project.data.ogImage %}
+          <img src="{{ project.data.ogImage }}" class="card-img-top" alt="{{ project.data.title }}">
         {% endif %}
         <div class="card-body">
           <h5 class="card-title">
             <a href="{{ project.url }}">{{ project.data.title }}</a>
           </h5>
-          <p class="card-text">{{ project.data.description }}</p>
+          <p class="card-text">{{ project.data.metaDescription }}</p>
         </div>
       </div>
     </div>
