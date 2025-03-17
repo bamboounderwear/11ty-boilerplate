@@ -1,13 +1,14 @@
 // src/scss/main.scss
 
-// Override Bootstrap variables BEFORE importing Bootstrap
+// 1. Override Bootstrap variables BEFORE importing Bootstrap.
+// (Customize as needed.)
 $primary: #ff5733;
 $body-bg: #f0f0f0;
 
-// Import Bootstrap SCSS from node_modules
+// 2. Import Bootstrap SCSS from node_modules
 @import "bootstrap/scss/bootstrap";
 
-// Add your custom styles below
+// 3. Your custom styles
 .custom-btn {
   background-color: $primary;
   border: none;

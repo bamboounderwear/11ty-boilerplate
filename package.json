@@ -1,19 +1,19 @@
 {
-    "name": "eleventy-bootstrap-boilerplate",
-    "version": "1.0.0",
-    "description": "A minimal Eleventy boilerplate using Bootstrap via SCSS with custom overrides.",
-    "main": ".eleventy.js",
-    "scripts": {
-      "build-css": "sass --load-path=node_modules src/scss/main.scss:src/css/main.css",
-      "build": "npm run build-css && eleventy",
-      "start": "npm run build-css && eleventy --serve"
-    },
-    "dependencies": {
-      "@11ty/eleventy": "^3.0.0",
-      "bootstrap": "^5.3.0",
-      "sass": "^1.66.1"
-    },
-    "author": "Your Name",
-    "license": "MIT"
-  }
-  
+  "name": "eleventy-bootstrap-boilerplate",
+  "version": "1.0.0",
+  "description": "A minimal Eleventy boilerplate using Bootstrap via SCSS with custom overrides and Eleventy Navigation.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "build-css": "sass --load-path=node_modules src/scss/main.scss:src/css/main.css",
+    "build": "npm run build-css && eleventy",
+    "start": "npm run build-css && eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "bootstrap": "^5.3.0",
+    "sass": "^1.66.1",
+    "eleventy-navigation": "^0.3.1"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
