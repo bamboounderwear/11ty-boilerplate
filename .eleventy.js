@@ -6,16 +6,16 @@ module.exports = function(eleventyConfig) {
   const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  // Blog collection: Only pick files directly in src/blog that are not the index file
+  // Create a "blog" collection from files in src/blog/ excluding index.njk
   eleventyConfig.addCollection("blog", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/blog/*.njk")
-      .filter(item => item.fileSlug !== "index");
+      .filter(item => !item.inputPath.endsWith("index.njk"));
   });
 
-  // Projects collection: Only pick files directly in src/projects that are not the index file
+  // Create a "projects" collection from files in src/projects/ excluding index.njk
   eleventyConfig.addCollection("projects", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/projects/*.njk")
-      .filter(item => item.fileSlug !== "index");
+      .filter(item => !item.inputPath.endsWith("index.njk"));
   });
 
   return {
