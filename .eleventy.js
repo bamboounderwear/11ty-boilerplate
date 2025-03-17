@@ -1,11 +1,11 @@
-const eleventyNavigationPlugin = require("eleventy-navigation");
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 module.exports = function(eleventyConfig) {
-  // Copy CSS and assets directories to the output
+  // Copy CSS and assets directories to the output folder
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
 
-  // Add Eleventy Navigation plugin
+  // Add the Eleventy Navigation plugin
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
   return {
