@@ -1,16 +1,10 @@
 ---
 layout: layouts/base.njk
-title: Projects
-metaTitle: Projects
-metaDescription: "Our recent projects and case studies."
-ogImage: "/assets/images/og-projects.jpg"
-eleventyNavigation:
-  key: projects
-  order: 3
-  title: Projects
-listing: true
+title: "Projects"
+metaTitle: "Projects"
+metaDescription: "List of all projects."
 permalink: "/projects/index.html"
 ---
 
 {% set limitedProjects = collections.projects | reverse | slice(0, 12) %}
-{% include "partials/projectsList.njk" with { "projects": limitedProjects } %}
+{% include "partials/projectsList.njk" with { projects: limitedProjects } %}
