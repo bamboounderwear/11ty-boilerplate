@@ -8,11 +8,12 @@ eleventyNavigation:
   key: blog
   order: 2
   title: Blog
+  url: "/blog/"
 pagination:
   data: collections.blog
   size: 8
   alias: posts
-permalink: "/blog/{{ pagination.pageNumber }}/index.html"
+permalink: "/blog/{{ pagination.pageNumber > 0 ? pagination.pageNumber + '/' : '' }}index.html"
 ---
 
 {% include "partials/postsList.njk" %}

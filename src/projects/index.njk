@@ -8,11 +8,12 @@ eleventyNavigation:
   key: projects
   order: 3
   title: Projects
+  url: "/projects/"
 pagination:
   data: collections.projects
   size: 8
   alias: projects
-permalink: "/projects/{{ pagination.pageNumber }}/index.html"
+permalink: "/projects/{{ pagination.pageNumber > 0 ? pagination.pageNumber + '/' : '' }}index.html"
 ---
 
 {% include "partials/projectsList.njk" %}
