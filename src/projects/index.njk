@@ -4,16 +4,16 @@ title: Projects
 metaTitle: Projects
 metaDescription: "Our recent projects and case studies."
 ogImage: "/assets/images/og-projects.jpg"
-eleventyNavigation:
-  key: projects
-  order: 3
-  title: Projects
-  url: "/projects/"
 pagination:
   data: collections.projects
   size: 8
   alias: projects
-permalink: "/projects/{{ pagination.pageNumber > 0 ? pagination.pageNumber + '/' : '' }}index.html"
+permalink: >
+  {% if pagination.pageNumber == 0 %}
+    /projects/index.html
+  {% else %}
+    /projects/{{ pagination.pageNumber }}/index.html
+  {% endif %}
 ---
 
 {% include "partials/projectsList.njk" %}

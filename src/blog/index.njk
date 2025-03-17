@@ -4,16 +4,16 @@ title: Blog
 metaTitle: Blog
 metaDescription: "Our latest blog posts."
 ogImage: "/assets/images/og-blog.jpg"
-eleventyNavigation:
-  key: blog
-  order: 2
-  title: Blog
-  url: "/blog/"
 pagination:
   data: collections.blog
   size: 8
   alias: posts
-permalink: "/blog/{{ pagination.pageNumber > 0 ? pagination.pageNumber + '/' : '' }}index.html"
+permalink: >
+  {% if pagination.pageNumber == 0 %}
+    /blog/index.html
+  {% else %}
+    /blog/{{ pagination.pageNumber }}/index.html
+  {% endif %}
 ---
 
 {% include "partials/postsList.njk" %}
