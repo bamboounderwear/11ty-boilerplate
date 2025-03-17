@@ -4,7 +4,7 @@
     "description": "A minimal Eleventy boilerplate using Bootstrap via SCSS with custom overrides.",
     "main": ".eleventy.js",
     "scripts": {
-      "build-css": "sass src/scss/main.scss:src/css/main.css",
+      "build-css": "sass --load-path=node_modules src/scss/main.scss:src/css/main.css",
       "build": "npm run build-css && eleventy",
       "start": "npm run build-css && eleventy --serve"
     },
