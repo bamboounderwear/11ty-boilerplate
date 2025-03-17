@@ -1,18 +1,19 @@
 module.exports = function(eleventyConfig) {
-  // Copy CSS and assets directories to the output folder
+  // Passthrough copies for CSS and assets
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
 
+  // Navigation plugin if needed
   const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  // Create a "blog" collection from files in src/blog/ excluding index.njk
+  // Blog collection: Pick files in src/blog, excluding index.njk
   eleventyConfig.addCollection("blog", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/blog/*.njk")
       .filter(item => !item.inputPath.endsWith("index.njk"));
   });
 
-  // Create a "projects" collection from files in src/projects/ excluding index.njk
+  // Projects collection: Pick files in src/projects, excluding index.njk
   eleventyConfig.addCollection("projects", function(collectionApi) {
     return collectionApi.getFilteredByGlob("src/projects/*.njk")
       .filter(item => !item.inputPath.endsWith("index.njk"));
