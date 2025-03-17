@@ -7,17 +7,17 @@ module.exports = function(eleventyConfig) {
   const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  // Blog collection: Pick files in src/blog, excluding index.njk
   eleventyConfig.addCollection("blog", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/blog/*.njk")
+    return collectionApi.getFilteredByGlob("src/blog/**/*.njk")
+      // Exclude the blog index file if it’s in the same folder.
       .filter(item => !item.inputPath.endsWith("index.njk"));
   });
-
-  // Projects collection: Pick files in src/projects, excluding index.njk
+  
   eleventyConfig.addCollection("projects", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/projects/*.njk")
+    return collectionApi.getFilteredByGlob("src/projects/**/*.njk")
       .filter(item => !item.inputPath.endsWith("index.njk"));
   });
+  
 
   return {
     dir: {
