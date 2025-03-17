@@ -1,23 +1,13 @@
-{% set projects = collections.projects | reverse | slice(0, 12) %}
-<p>Projects collection count: {{ projects | length }}</p>
-<div class="projects-list row">
-  {% if projects.length == 0 %}
-    <p>No projects found.</p>
-  {% else %}
+{% if projects and projects.length > 0 %}
+  <p>Projects collection count (in partial): {{ projects.length }}</p>
+  <div>
     {% for project in projects %}
-      <div class="col-md-3 mb-4">
-        <div class="card">
-          {% if project.data.ogImage %}
-            <img src="{{ project.data.ogImage }}" class="card-img-top" alt="{{ project.data.title }}">
-          {% endif %}
-          <div class="card-body">
-            <h5 class="card-title">
-              <a href="{{ project.url }}">{{ project.data.title }}</a>
-            </h5>
-            <p class="card-text">{{ project.data.metaDescription }}</p>
-          </div>
-        </div>
-      </div>
+      <article>
+        <h2><a href="{{ project.url }}">{{ project.data.title }}</a></h2>
+        <p>{{ project.data.metaDescription }}</p>
+      </article>
     {% endfor %}
-  {% endif %}
-</div>
+  </div>
+{% else %}
+  <p>No projects found.</p>
+{% endif %}

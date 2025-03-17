@@ -12,4 +12,5 @@ listing: true
 permalink: "/blog/index.html"
 ---
 
-{% include "partials/postsList.njk" %}
+{% set limitedPosts = collections.blog | reverse | slice(0, 12) %}
+{% include "partials/postsList.njk" with { "posts": limitedPosts } %}

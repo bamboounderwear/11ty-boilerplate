@@ -1,14 +1,13 @@
-{% set posts = collections.blog | reverse | slice(0, 12) %}
-<p>Blog collection count: {{ posts | length }}</p>
-<div class="posts-list">
-  {% if posts.length == 0 %}
-    <p>No blog posts found.</p>
-  {% else %}
+{% if posts and posts.length > 0 %}
+  <p>Blog collection count (in partial): {{ posts.length }}</p>
+  <div>
     {% for post in posts %}
-      <article class="post mb-4">
+      <article>
         <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
         <p>{{ post.data.metaDescription }}</p>
       </article>
     {% endfor %}
-  {% endif %}
-</div>
+  </div>
+{% else %}
+  <p>No blog posts found.</p>
+{% endif %}
