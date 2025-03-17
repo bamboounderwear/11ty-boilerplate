@@ -3,9 +3,6 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/css");
   eleventyConfig.addPassthroughCopy("src/assets");
 
-  const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
-  eleventyConfig.addPlugin(eleventyNavigationPlugin);
-
   // Add date filter
   eleventyConfig.addFilter("date", function(date, format) {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
