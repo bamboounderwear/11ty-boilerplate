@@ -1,6 +1,7 @@
 module.exports = function(eleventyConfig) {
   // Copy CSS and assets directories to the output folder
   eleventyConfig.addPassthroughCopy("src/css");
+  eleventyConfig.addPassthroughCopy("src/js");
   eleventyConfig.addPassthroughCopy("src/assets");
 
   // Add date filter
