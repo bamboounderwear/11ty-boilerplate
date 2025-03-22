@@ -1,13 +1,13 @@
 {% if projects and projects.length > 0 %}
   <div class="row">
     {% for project in projects %}
-      <div class="col-md-4 mb-4">
+      <div class="col-md-6 mb-4">
         <article class="card h-100">
           {% if project.data.featuredImage %}
             <img src="{{ project.data.featuredImage }}" alt="{{ project.data.title }} Featured Image" class="card-img-top">
           {% endif %}
           <div class="card-body">
-            <h2 class="card-title h5">
+            <h2 class="card-title h3">
               <a href="{{ project.url }}" class="text-decoration-none">{{ project.data.title }}</a>
             </h2>
             <p class="card-text">{{ project.data.metaDescription }}</p>
