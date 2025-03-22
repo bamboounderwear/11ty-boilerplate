@@ -72,7 +72,7 @@ $h4-font-size: calc($font-size-base * 1.5);
 $h5-font-size: calc($font-size-base * 1.25);
 $h6-font-size: $font-size-base;
 $headings-font-family: inherit;
-$headings-font-weight: 500;
+$headings-font-weight: 400;
 $headings-line-height: 1.2;
 $headings-margin-bottom: 0.5rem;
 
@@ -81,6 +81,7 @@ $display1-size: 2.5rem;
 $display2-size: 2rem;
 $display3-size: 1.75rem;
 $display4-size: 1.5rem;
+$font-weight-light: 400;
 
 // --------------------
 // Borders & Radius
